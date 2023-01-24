@@ -44,6 +44,13 @@ table {
 	border-spacing: 0;
 }
 
+:root {
+  --pink: rgb(234, 82, 111);
+  --blue: rgb(37, 206, 209);
+  --orange: rgb(255, 138, 91);
+  --beige: rgb(252, 234, 222);
+}
+
 * {
   box-sizing: border-box;
 }
@@ -68,7 +75,7 @@ table {
 }
 
 .side-bar {
-  background-color: indianred;
+  background-color: var(--orange);
   display: flex;
   flex-direction: column;
 }
@@ -97,7 +104,8 @@ table {
 .bar-1 > * > div:hover,
 .bar-2 > * > div:hover {
   cursor: pointer;
-  color: rgb(238, 242, 15);
+  color: var(--pink);
+  outline: none;
 }
 
 .site-logo {
@@ -154,6 +162,11 @@ table {
   padding-right: 50px;
 }
 
+.account-notif svg:hover {
+  cursor: pointer;
+  stroke: var(--pink)
+}
+
 .account-notif > div {
   font-size: 20px;
   white-space: nowrap;
@@ -208,20 +221,164 @@ table {
 
 .actions > div {
   font-size: 15px;
-  background-color: rgb(32, 160, 56);
+  background-color: var(--pink);
   padding: 10px 20px 10px 20px;
   border-radius: 50px;
 }
 
 .actions > div:hover {
   cursor: pointer;
-  background-color: rgb(238, 242, 15);
+  background-color: var(--blue);
   color: black;
 }
 
 .gallery {
   grid-area: gallery;
-  background-color: rgb(252, 236, 236);
+  background-color: var(--beige);
   display: grid;
-  
+  grid-template-columns: 3.5fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: 
+  'projects announcements'
+  'projects trending';
+  overflow: auto;
+  padding: 20px;
+  padding-top: 0px;
+  gap: 20px;
+}
+
+.gallery > * {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: auto 1fr;
+  gap: 10px;
+}
+
+.section-title {
+  padding: 40px 20px 5px 20px;
+  color: black;
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.card {
+  display: grid;
+  background-color: white;
+  border-left: solid 8px var(--blue);
+  color: black;
+  grid-template-rows: 1fr 3fr 1fr;
+  grid-template-areas: 
+  'card-title'
+  'card-content'
+  'card-actions';
+  padding: 20px;
+  padding-left: 40px;
+  gap: 15px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.card-title {
+  grid-area: card-title;
+  margin-top: 20px;
+  font-size: 25px;
+  font-weight: 500;
+  align-self: center;
+}
+
+.card-content > * > b {
+  font-weight: 500;
+}
+
+.card-content > * {
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.card-content {
+  grid-area: card-content;
+  line-height: 25px;
+}
+
+.card-actions {
+  grid-area: card-actions;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.card-actions > svg {
+  height: 30px;
+}
+
+.card-actions > svg:hover {
+  cursor: pointer;
+}
+
+.like:hover {
+  fill: lightskyblue;
+}
+
+.dislike:hover {
+  fill: rgb(217, 84, 84);
+}
+
+.star:hover {
+  fill: yellow;
+}
+
+.projects {
+  grid-area: projects;
+}
+
+.projects-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.projects-cards > * {
+  height: 1fr;
+}
+
+.announcements {
+  grid-area: announcements;
+  gap: 15px;
+}
+
+.announcements .card,
+.trending .card {
+  border-left: solid 8px var(--pink);
+}
+
+.trending {
+  grid-area: trending;
+  gap: 15px;
+}
+
+.trending > .card {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: 2fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.trending img {
+  height: 50px;
+  border-radius: 50%;
+}
+
+.porter {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.porter div {
+  margin-left: 15px;
+}
+
+#user {
+  color: var(--pink)
 }

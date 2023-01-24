@@ -128,6 +128,7 @@ table {
   display: flex;
   height: 100%;
   justify-content: center;
+  margin-right: 50px;
 }
 
 .search-icon {
@@ -169,6 +170,30 @@ table {
 
 .greet {
   grid-area: greet;
+  display: flex;
+  align-items: center;
+  margin: 15px 0px 15px 10px;
+}
+
+.greet-text {
+  color: black;
+  display: grid;
+  grid-template-rows: 1fr 3fr;
+  align-items: center;
+  margin-left: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* greeting text */
+.greet-text > div {
+  font-size: smaller;
+}
+
+/* user name */
+.greet-text > div + div {
+  font-size: 1.5rem;
+  font-weight: 500;
 }
 
 .actions {

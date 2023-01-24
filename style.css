@@ -54,7 +54,7 @@ table {
   height: 100vh;
   display: grid;
   grid-template-rows: 1fr 2fr 18fr;
-  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-columns: 1fr 3fr 1.2fr;
   grid-template-areas:
   'site-logo search-bar account-notif'
   'menu greet actions'
@@ -128,7 +128,6 @@ table {
   display: flex;
   height: 100%;
   justify-content: center;
-  margin-right: 50px;
 }
 
 .search-icon {
@@ -150,8 +149,9 @@ table {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: center;
+  justify-content: right;
   align-items: center;
+  padding-right: 50px;
 }
 
 .account-notif > div {
@@ -181,6 +181,7 @@ table {
   grid-template-rows: 1fr 3fr;
   align-items: center;
   margin-left: 15px;
+  margin-right: 15px;
   white-space: nowrap;
   overflow: hidden;
 }
@@ -198,8 +199,29 @@ table {
 
 .actions {
   grid-area: actions;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  place-items: center;
+  padding-right: 20px;
+}
+
+.actions > div {
+  font-size: 15px;
+  background-color: rgb(32, 160, 56);
+  padding: 10px 20px 10px 20px;
+  border-radius: 50px;
+}
+
+.actions > div:hover {
+  cursor: pointer;
+  background-color: rgb(238, 242, 15);
+  color: black;
 }
 
 .gallery {
   grid-area: gallery;
+  background-color: rgb(252, 236, 236);
+  display: grid;
+  
 }
